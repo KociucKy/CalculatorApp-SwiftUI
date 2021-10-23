@@ -16,15 +16,14 @@ struct CalculatorButton: View {
         Button {
             // Inform model of button pressed
         } label: {
-            Circle()
-                .fill(color)
-                .frame(width: 100, height: 100)
-                .overlay(
-                    Text(label)
-                        .font(.title)
-                )
+            ZStack{
+                Circle()
+                    .fill(color)
+                Text(label)
+                    .font(.title)
+            }
+            .accentColor(.white)
         }
-        .accentColor(.white)
 
     }
 }
