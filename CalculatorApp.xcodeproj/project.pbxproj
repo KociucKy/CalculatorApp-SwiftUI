@@ -13,6 +13,8 @@
 		880473A2272404E80084B5FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880473A1272404E80084B5FB /* Preview Assets.xcassets */; };
 		880473AD2724063C0084B5FB /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880473AC2724063C0084B5FB /* CalculatorButton.swift */; };
 		880473AF272407A20084B5FB /* CalculatorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880473AE272407A20084B5FB /* CalculatorRow.swift */; };
+		880473B127240BD00084B5FB /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880473B027240BD00084B5FB /* CalculatorModel.swift */; };
+		880473B327240BF20084B5FB /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880473B227240BF20084B5FB /* Operator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		880473A1272404E80084B5FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		880473AC2724063C0084B5FB /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		880473AE272407A20084B5FB /* CalculatorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorRow.swift; sourceTree = "<group>"; };
+		880473B027240BD00084B5FB /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
+		880473B227240BF20084B5FB /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		880473A8272405E50084B5FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				880473B027240BD00084B5FB /* CalculatorModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 		880473AA272405F40084B5FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				880473B227240BF20084B5FB /* Operator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				880473AF272407A20084B5FB /* CalculatorRow.swift in Sources */,
+				880473B327240BF20084B5FB /* Operator.swift in Sources */,
+				880473B127240BD00084B5FB /* CalculatorModel.swift in Sources */,
 				8804739D272404E70084B5FB /* CalculatorHome.swift in Sources */,
 				880473AD2724063C0084B5FB /* CalculatorButton.swift in Sources */,
 				8804739B272404E70084B5FB /* CalculatorApp.swift in Sources */,

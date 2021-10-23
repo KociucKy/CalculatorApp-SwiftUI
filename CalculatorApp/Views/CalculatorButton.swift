@@ -1,10 +1,3 @@
-//
-//  CalculatorButton.swift
-//  CalculatorApp
-//
-//  Created by Kuba Kociucki on 23/10/2021.
-//
-
 import SwiftUI
 
 struct CalculatorButton: View {
