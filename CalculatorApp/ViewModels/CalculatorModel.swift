@@ -3,7 +3,7 @@ import Foundation
 class CalculatorModel: ObservableObject{
     
     //MARK: - Properties
-    @Published var displayValue = "9" //Default value of the calculator
+    @Published var displayValue = "0" //Default value of the calculator
     var currentOp: Operator? //Storing the current operator
     var currentNumber: Double? = 0 //Current selected number - it have to be equal to displayValue
     var previusNumber: Double?
@@ -29,6 +29,15 @@ class CalculatorModel: ObservableObject{
         }
     }
     
+    func setDisplayValue(number: Double){
+        if number == floor(number){
+            displayValue = "\(Int(number))"
+        }else{
+            let decimalPlaces = 10
+            displayValue = "\(round(number * pow(10, decimalPlaces)) / pow(10, decimalPlaces))"
+        }
+    }
+    
     //Resets the state of the calculator
     func reset(){
         currentOp = nil
@@ -48,9 +57,35 @@ class CalculatorModel: ObservableObject{
     
     func numberPressed(value: Double){
         
+        //If equals was pressed, clear the current number
+        if equaled{
+            currentNumber = nil
+            previusNumber = nil
+            equaled = false
+        }
+       
+        //If there is no current number, set it to the value
+        if currentNumber == nil{
+            currentNumber = value / pow(10, decimalPlace)
+        }else{ //Otherwise, add the value to the current number
+            if decimalPlace == 0{
+                currentNumber = currentNumber! * 10 + value
+            }else{
+                currentNumber = currentNumber! + value / pow(10, decimalPlace)
+                decimalPlace += 1
+            }
+        }
+        
+        //Updating the UI
+        setDisplayValue(number: currentNumber!)
     }
     
     func operatorPressed(op: Operator){
         
     }
+}
+
+
+func pow(_ base: Int, _ exp: Int) -> Double{
+    pow(Double(base), Double(exp))
 }
