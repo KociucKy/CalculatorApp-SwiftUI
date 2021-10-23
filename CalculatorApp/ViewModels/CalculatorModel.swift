@@ -80,7 +80,20 @@ class CalculatorModel: ObservableObject{
     }
     
     func decimalClicked(){
+        if equaled{
+            currentNumber = nil
+            previousNumber = nil
+            equaled = false
+        }
         
+        if currentNumber == nil{
+            currentNumber = 0
+        }
+        
+        decimalPlace = 1
+        
+        setDisplayValue(number: currentNumber!)
+        displayValue.append(".")
     }
     
     func numberPressed(value: Double){
