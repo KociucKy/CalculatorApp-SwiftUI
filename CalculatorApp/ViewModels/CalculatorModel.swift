@@ -6,7 +6,7 @@ class CalculatorModel: ObservableObject{
     @Published var displayValue = "0" //Default value of the calculator
     var currentOp: Operator? //Storing the current operator
     var currentNumber: Double? = 0 //Current selected number - it have to be equal to displayValue
-    var previusNumber: Double?
+    var previousNumber: Double?
     var equaled = false //Flag for equal press
     var decimalPlace = 0 //How many decimal places have been tapped
     
@@ -25,7 +25,7 @@ class CalculatorModel: ObservableObject{
         }else if let value = Double(label){
             numberPressed(value: value)
         }else{
-            operatorPressed(op: Operator())
+            operatorPressed(op: Operator(label))
         }
     }
     
@@ -42,7 +42,7 @@ class CalculatorModel: ObservableObject{
     func reset(){
         currentOp = nil
         currentNumber = 0
-        previusNumber = nil
+        previousNumber = nil
         equaled = false
         decimalPlace = 0
     }
@@ -60,7 +60,7 @@ class CalculatorModel: ObservableObject{
         //If equals was pressed, clear the current number
         if equaled{
             currentNumber = nil
-            previusNumber = nil
+            previousNumber = nil
             equaled = false
         }
        
@@ -81,7 +81,26 @@ class CalculatorModel: ObservableObject{
     }
     
     func operatorPressed(op: Operator){
+        decimalPlace = 0
         
+        if equaled {
+            currentNumber = nil
+            equaled = false
+        }
+        
+        if currentNumber != nil && previousNumber != nil{
+            let total = currentOp!.op(previousNumber!, currentNumber!)
+            previousNumber = total
+            currentNumber = nil
+            
+            //Update the UI
+            setDisplayValue(number: total)
+        }else if previousNumber == nil{
+            previousNumber = currentNumber
+            currentNumber = nil
+        }
+        
+        currentOp = op
     }
 }
 
